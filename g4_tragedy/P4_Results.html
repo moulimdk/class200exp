@@ -1,0 +1,20 @@
+{{ block app_styles }}
+    {{ include '_static/global/style_details.html' }}
+{{ endblock}}
+
+{{ block title }}
+    Payment
+{{ endblock }}
+
+{{ block content }}
+    <div class="description">
+        <ul>
+            <li>
+                You have chosen to fish {{ myAction1 }} unit(s) in Period 1, {{ myAction2 }} unit(s) in Period 2, {{ myAction3 }} unit(s) in Period 3, {{ myAction4 }} unit(s) in Period 4, {{ myAction5 }} unit(s) in Period 5.
+            </li>
+            <li>
+                Your payoff is {{ myPayoff }}.
+            </li>
+        </ul> 
+    </div>
+{{ endblock }}

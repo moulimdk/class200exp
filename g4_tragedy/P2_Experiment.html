@@ -1,0 +1,35 @@
+{{ block app_styles }}
+    {{ include '_static/global/style_details.html' }}
+{{ endblock}}
+
+{{ block title }}
+    Choose Your Action
+{{ endblock }}
+
+{{ block content }}
+
+    <div class="description">
+        <h3>
+            Period Number #{{ period_number }}
+        </h3>
+        <ul>
+            <li>
+                Current available amount of fish = {{ total_endowment }}
+            </li>
+            {{ if period_number < num_periods }}
+            <li>
+                If there are any fish remaining at the end of the period, then fish population will grow {{ growth }} times for next period.
+            </li>
+            {{ endif }}
+        </ul>
+        <br>
+        {{ formfield "myAction" }}
+        <br>
+        <p style="text-align: center;">
+            <button class="btn btn-primary btn-large" id="NextButton" style="display: inline-block; font-size: 22px; background-color: #024b30;">
+                Confirm Choice
+            </button>
+        </p>
+    </div>
+
+{{ endblock }}

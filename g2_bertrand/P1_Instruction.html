@@ -1,0 +1,244 @@
+{{ block title }}
+    Instructions
+{{ endblock }}
+
+{{ block app_styles }}
+    {% include '_static/global/style_details.html' %}
+{{ endblock }}
+
+{{ block content }}
+
+    <div class="description">
+        {{ formfield "myName" label="Enter you name"}}
+        <ul>
+            <li>
+                This game in called Bertrand Market Competition Game.
+            </li>
+            <br>
+            <li>
+                This game is for two players -- you and <b>Other</b>.
+            </li>
+            <br>
+            <li>
+                Suppose there is a Market with demand given by Q = 10 - P, Q = Quantity and P = Price (in $).
+            </li>
+            <br>
+            <li>
+                You and Other can choose prices to charge. In this game, you can choose any price between $0 and $10.
+            </li>
+            <br>
+            <li>
+                The payoffs are given in the table below.
+            </li>
+            <br>
+        </ul>
+        <br>
+        <h3 style="text-align: center;">
+            Payoff Table
+        </h3>	
+
+        <table class="table">
+            <tr>
+                <th style="border: none;"></th>
+                <th style="border: none;"></th>
+                <th colspan="11">Other</th>
+            </tr>
+            <tr>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td rowspan="11">You</td>
+                <td>0</td>
+                <td><span style="color:red">{{ P_00 }}</span>, <span style="color:blue">{{ P_00 }}</span></td>
+                <td><span style="color:red">{{ P_01 }}</span>, <span style="color:blue">{{ P_10 }}</span></td>
+                <td><span style="color:red">{{ P_02 }}</span>, <span style="color:blue">{{ P_20 }}</span></td>
+                <td><span style="color:red">{{ P_03 }}</span>, <span style="color:blue">{{ P_30 }}</span></td>
+                <td><span style="color:red">{{ P_04 }}</span>, <span style="color:blue">{{ P_40 }}</span></td>
+                <td><span style="color:red">{{ P_05 }}</span>, <span style="color:blue">{{ P_50 }}</span></td>
+                <td><span style="color:red">{{ P_06 }}</span>, <span style="color:blue">{{ P_60 }}</span></td>
+                <td><span style="color:red">{{ P_07 }}</span>, <span style="color:blue">{{ P_70 }}</span></td>
+                <td><span style="color:red">{{ P_08 }}</span>, <span style="color:blue">{{ P_80 }}</span></td>
+                <td><span style="color:red">{{ P_09 }}</span>, <span style="color:blue">{{ P_90 }}</span></td>
+                <td><span style="color:red">{{ P_010 }}</span>, <span style="color:blue">{{ P_100 }}</span></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><span style="color:red">{{ P_10 }}</span>, <span style="color:blue">{{ P_01 }}</span></td>
+                <td><span style="color:red">{{ P_11 }}</span>, <span style="color:blue">{{ P_11 }}</span></td>
+                <td><span style="color:red">{{ P_12 }}</span>, <span style="color:blue">{{ P_21 }}</span></td>
+                <td><span style="color:red">{{ P_13 }}</span>, <span style="color:blue">{{ P_31 }}</span></td>
+                <td><span style="color:red">{{ P_14 }}</span>, <span style="color:blue">{{ P_41 }}</span></td>
+                <td><span style="color:red">{{ P_15 }}</span>, <span style="color:blue">{{ P_51 }}</span></td>
+                <td><span style="color:red">{{ P_16 }}</span>, <span style="color:blue">{{ P_61 }}</span></td>
+                <td><span style="color:red">{{ P_17 }}</span>, <span style="color:blue">{{ P_71 }}</span></td>
+                <td><span style="color:red">{{ P_18 }}</span>, <span style="color:blue">{{ P_81 }}</span></td>
+                <td><span style="color:red">{{ P_19 }}</span>, <span style="color:blue">{{ P_91 }}</span></td>
+                <td><span style="color:red">{{ P_110 }}</span>, <span style="color:blue">{{ P_101 }}</span></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><span style="color:red">{{ P_20 }}</span>, <span style="color:blue">{{ P_02 }}</span></td>
+                <td><span style="color:red">{{ P_21 }}</span>, <span style="color:blue">{{ P_12 }}</span></td>
+                <td><span style="color:red">{{ P_22 }}</span>, <span style="color:blue">{{ P_22 }}</span></td>
+                <td><span style="color:red">{{ P_23 }}</span>, <span style="color:blue">{{ P_32 }}</span></td>
+                <td><span style="color:red">{{ P_24 }}</span>, <span style="color:blue">{{ P_42 }}</span></td>
+                <td><span style="color:red">{{ P_25 }}</span>, <span style="color:blue">{{ P_52 }}</span></td>
+                <td><span style="color:red">{{ P_26 }}</span>, <span style="color:blue">{{ P_62 }}</span></td>
+                <td><span style="color:red">{{ P_27 }}</span>, <span style="color:blue">{{ P_72 }}</span></td>
+                <td><span style="color:red">{{ P_28 }}</span>, <span style="color:blue">{{ P_82 }}</span></td>
+                <td><span style="color:red">{{ P_29 }}</span>, <span style="color:blue">{{ P_92 }}</span></td>
+                <td><span style="color:red">{{ P_210 }}</span>, <span style="color:blue">{{ P_102 }}</span></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><span style="color:red">{{ P_30 }}</span>, <span style="color:blue">{{ P_03 }}</span></td>
+                <td><span style="color:red">{{ P_31 }}</span>, <span style="color:blue">{{ P_13 }}</span></td>
+                <td><span style="color:red">{{ P_32 }}</span>, <span style="color:blue">{{ P_23 }}</span></td>
+                <td><span style="color:red">{{ P_33 }}</span>, <span style="color:blue">{{ P_33 }}</span></td>
+                <td><span style="color:red">{{ P_34 }}</span>, <span style="color:blue">{{ P_43 }}</span></td>
+                <td><span style="color:red">{{ P_35 }}</span>, <span style="color:blue">{{ P_53 }}</span></td>
+                <td><span style="color:red">{{ P_36 }}</span>, <span style="color:blue">{{ P_63 }}</span></td>
+                <td><span style="color:red">{{ P_37 }}</span>, <span style="color:blue">{{ P_73 }}</span></td>
+                <td><span style="color:red">{{ P_38 }}</span>, <span style="color:blue">{{ P_83 }}</span></td>
+                <td><span style="color:red">{{ P_39 }}</span>, <span style="color:blue">{{ P_93 }}</span></td>
+                <td><span style="color:red">{{ P_310 }}</span>, <span style="color:blue">{{ P_103 }}</span></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><span style="color:red">{{ P_40 }}</span>, <span style="color:blue">{{ P_04 }}</span></td>
+                <td><span style="color:red">{{ P_41 }}</span>, <span style="color:blue">{{ P_14 }}</span></td>
+                <td><span style="color:red">{{ P_42 }}</span>, <span style="color:blue">{{ P_24 }}</span></td>
+                <td><span style="color:red">{{ P_43 }}</span>, <span style="color:blue">{{ P_34 }}</span></td>
+                <td><span style="color:red">{{ P_44 }}</span>, <span style="color:blue">{{ P_44 }}</span></td>
+                <td><span style="color:red">{{ P_45 }}</span>, <span style="color:blue">{{ P_54 }}</span></td>
+                <td><span style="color:red">{{ P_46 }}</span>, <span style="color:blue">{{ P_64 }}</span></td>
+                <td><span style="color:red">{{ P_47 }}</span>, <span style="color:blue">{{ P_74 }}</span></td>
+                <td><span style="color:red">{{ P_48 }}</span>, <span style="color:blue">{{ P_84 }}</span></td>
+                <td><span style="color:red">{{ P_49 }}</span>, <span style="color:blue">{{ P_94 }}</span></td>
+                <td><span style="color:red">{{ P_410 }}</span>, <span style="color:blue">{{ P_104 }}</span></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><span style="color:red">{{ P_50 }}</span>, <span style="color:blue">{{ P_05 }}</span></td>
+                <td><span style="color:red">{{ P_51 }}</span>, <span style="color:blue">{{ P_15 }}</span></td>
+                <td><span style="color:red">{{ P_52 }}</span>, <span style="color:blue">{{ P_25 }}</span></td>
+                <td><span style="color:red">{{ P_53 }}</span>, <span style="color:blue">{{ P_35 }}</span></td>
+                <td><span style="color:red">{{ P_54 }}</span>, <span style="color:blue">{{ P_45 }}</span></td>
+                <td><span style="color:red">{{ P_55 }}</span>, <span style="color:blue">{{ P_55 }}</span></td>
+                <td><span style="color:red">{{ P_56 }}</span>, <span style="color:blue">{{ P_65 }}</span></td>
+                <td><span style="color:red">{{ P_57 }}</span>, <span style="color:blue">{{ P_75 }}</span></td>
+                <td><span style="color:red">{{ P_58 }}</span>, <span style="color:blue">{{ P_85 }}</span></td>
+                <td><span style="color:red">{{ P_59 }}</span>, <span style="color:blue">{{ P_95 }}</span></td>
+                <td><span style="color:red">{{ P_510 }}</span>, <span style="color:blue">{{ P_105 }}</span></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td><span style="color:red">{{ P_60 }}</span>, <span style="color:blue">{{ P_06 }}</span></td>
+                <td><span style="color:red">{{ P_61 }}</span>, <span style="color:blue">{{ P_16 }}</span></td>
+                <td><span style="color:red">{{ P_62 }}</span>, <span style="color:blue">{{ P_26 }}</span></td>
+                <td><span style="color:red">{{ P_63 }}</span>, <span style="color:blue">{{ P_36 }}</span></td>
+                <td><span style="color:red">{{ P_64 }}</span>, <span style="color:blue">{{ P_46 }}</span></td>
+                <td><span style="color:red">{{ P_65 }}</span>, <span style="color:blue">{{ P_56 }}</span></td>
+                <td><span style="color:red">{{ P_66 }}</span>, <span style="color:blue">{{ P_66 }}</span></td>
+                <td><span style="color:red">{{ P_67 }}</span>, <span style="color:blue">{{ P_76 }}</span></td>
+                <td><span style="color:red">{{ P_68 }}</span>, <span style="color:blue">{{ P_86 }}</span></td>
+                <td><span style="color:red">{{ P_69 }}</span>, <span style="color:blue">{{ P_96 }}</span></td>
+                <td><span style="color:red">{{ P_610 }}</span>, <span style="color:blue">{{ P_106 }}</span></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td><span style="color:red">{{ P_70 }}</span>, <span style="color:blue">{{ P_07 }}</span></td>
+                <td><span style="color:red">{{ P_71 }}</span>, <span style="color:blue">{{ P_17 }}</span></td>
+                <td><span style="color:red">{{ P_72 }}</span>, <span style="color:blue">{{ P_27 }}</span></td>
+                <td><span style="color:red">{{ P_73 }}</span>, <span style="color:blue">{{ P_37 }}</span></td>
+                <td><span style="color:red">{{ P_74 }}</span>, <span style="color:blue">{{ P_47 }}</span></td>
+                <td><span style="color:red">{{ P_75 }}</span>, <span style="color:blue">{{ P_57 }}</span></td>
+                <td><span style="color:red">{{ P_76 }}</span>, <span style="color:blue">{{ P_67 }}</span></td>
+                <td><span style="color:red">{{ P_77 }}</span>, <span style="color:blue">{{ P_77 }}</span></td>
+                <td><span style="color:red">{{ P_78 }}</span>, <span style="color:blue">{{ P_87 }}</span></td>
+                <td><span style="color:red">{{ P_79 }}</span>, <span style="color:blue">{{ P_97 }}</span></td>
+                <td><span style="color:red">{{ P_710 }}</span>, <span style="color:blue">{{ P_107 }}</span></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td><span style="color:red">{{ P_80 }}</span>, <span style="color:blue">{{ P_08 }}</span></td>
+                <td><span style="color:red">{{ P_81 }}</span>, <span style="color:blue">{{ P_18 }}</span></td>
+                <td><span style="color:red">{{ P_82 }}</span>, <span style="color:blue">{{ P_28 }}</span></td>
+                <td><span style="color:red">{{ P_83 }}</span>, <span style="color:blue">{{ P_38 }}</span></td>
+                <td><span style="color:red">{{ P_84 }}</span>, <span style="color:blue">{{ P_48 }}</span></td>
+                <td><span style="color:red">{{ P_85 }}</span>, <span style="color:blue">{{ P_58 }}</span></td>
+                <td><span style="color:red">{{ P_86 }}</span>, <span style="color:blue">{{ P_68 }}</span></td>
+                <td><span style="color:red">{{ P_87 }}</span>, <span style="color:blue">{{ P_78 }}</span></td>
+                <td><span style="color:red">{{ P_88 }}</span>, <span style="color:blue">{{ P_88 }}</span></td>
+                <td><span style="color:red">{{ P_89 }}</span>, <span style="color:blue">{{ P_98 }}</span></td>
+                <td><span style="color:red">{{ P_810 }}</span>, <span style="color:blue">{{ P_108 }}</span></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td><span style="color:red">{{ P_90 }}</span>, <span style="color:blue">{{ P_09 }}</span></td>
+                <td><span style="color:red">{{ P_91 }}</span>, <span style="color:blue">{{ P_19 }}</span></td>
+                <td><span style="color:red">{{ P_92 }}</span>, <span style="color:blue">{{ P_29 }}</span></td>
+                <td><span style="color:red">{{ P_93 }}</span>, <span style="color:blue">{{ P_39 }}</span></td>
+                <td><span style="color:red">{{ P_94 }}</span>, <span style="color:blue">{{ P_49 }}</span></td>
+                <td><span style="color:red">{{ P_95 }}</span>, <span style="color:blue">{{ P_59 }}</span></td>
+                <td><span style="color:red">{{ P_96 }}</span>, <span style="color:blue">{{ P_69 }}</span></td>
+                <td><span style="color:red">{{ P_97 }}</span>, <span style="color:blue">{{ P_79 }}</span></td>
+                <td><span style="color:red">{{ P_98 }}</span>, <span style="color:blue">{{ P_89 }}</span></td>
+                <td><span style="color:red">{{ P_99 }}</span>, <span style="color:blue">{{ P_99 }}</span></td>
+                <td><span style="color:red">{{ P_910 }}</span>, <span style="color:blue">{{ P_109 }}</span></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td><span style="color:red">{{ P_100 }}</span>, <span style="color:blue">{{ P_010 }}</span></td>
+                <td><span style="color:red">{{ P_101 }}</span>, <span style="color:blue">{{ P_110 }}</span></td>
+                <td><span style="color:red">{{ P_102 }}</span>, <span style="color:blue">{{ P_210 }}</span></td>
+                <td><span style="color:red">{{ P_103 }}</span>, <span style="color:blue">{{ P_310 }}</span></td>
+                <td><span style="color:red">{{ P_104 }}</span>, <span style="color:blue">{{ P_410 }}</span></td>
+                <td><span style="color:red">{{ P_105 }}</span>, <span style="color:blue">{{ P_510 }}</span></td>
+                <td><span style="color:red">{{ P_106 }}</span>, <span style="color:blue">{{ P_610 }}</span></td>
+                <td><span style="color:red">{{ P_107 }}</span>, <span style="color:blue">{{ P_710 }}</span></td>
+                <td><span style="color:red">{{ P_108 }}</span>, <span style="color:blue">{{ P_810 }}</span></td>
+                <td><span style="color:red">{{ P_109 }}</span>, <span style="color:blue">{{ P_910 }}</span></td>
+                <td><span style="color:red">{{ P_1010 }}</span>, <span style="color:blue">{{ P_1010 }}</span></td>
+            </tr>
+        </table>    
+
+        <hr style="clear:both;">
+
+        <br>
+
+        <ul>
+            <li>
+                Your payoffs are in <span style="color:red">Red</span>, Other's payoffs are in <span style="color:blue">Blue</span>.
+            </li>
+        </ul>
+
+        <hr style="clear:both;">
+
+        <ul>
+            <li>
+                After you choose your action, another person from the class will be chosen as <b>Other</b>. Your payoff will depend on what action you and Other choose.
+            </li>
+        </ul>
+
+        
+        <p style="text-align: center;">
+            <button class="btn btn-primary btn-large" id="NextButton" style="display: inline-block; font-size: 22px; background-color: #024b30;">
+                Choose Action
+            </button>
+        </p>
+    </div>
+
+{{ endblock }}

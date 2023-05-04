@@ -1,0 +1,38 @@
+{{ block app_styles }}
+    {{ include '_static/global/style_details.html' }}
+{{ endblock}}
+
+{{ block title }}
+    Payment
+{{ endblock }}
+
+{{ block content }}
+    <div class="description">
+        <ul>
+            <li>
+                You have chosen {{ myAction }} unit(s) to contribute.
+            </li>
+            <li>
+                Other 1 has chosen {{ other1Action }} unit(s) and Other 2 has chosen {{ other2Action }} unit(s) to contribute.
+            </li>
+            <li>
+                Total contribution to the Public Good Fund = {{ total_pge }} units
+            </li>
+            <li>
+                Return from the Public Good Fund = {{ return_pge }} units
+            </li>
+            <li>
+                Your payoff from Public Good Fund is {{ pge }}.
+            </li>
+            <li>
+                Your payoff is {{ myPayoff }}.
+            </li>
+            <li>
+                Other 1's payoff is {{ other1Payoff }}.
+            </li>
+            <li>
+                Other 2's payoff is {{ other2Payoff }}.
+            </li>
+        </ul> 
+    </div>
+{{ endblock }}

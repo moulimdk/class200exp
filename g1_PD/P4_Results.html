@@ -1,0 +1,28 @@
+{{ block app_styles }}
+    {{ include '_static/global/style_details.html' }}
+{{ endblock}}
+
+{{ block title }}
+    Payment
+{{ endblock }}
+
+{{ block content }}
+    <div class="description">
+        <ul>
+            <li>
+                You have chosen {{ myAction }}.
+            </li>
+            <li>
+                Other has chosen {{ otherAction }}.
+            </li>
+            <li>
+                Your payoff is {{ myPayoff }}.
+            </li>
+            <li>
+                Other's payoff is {{ otherPayoff }}.
+            </li>
+        </ul> 
+    </div>
+{{ endblock }}
+
+

@@ -1,0 +1,65 @@
+{{ block title }}
+    Instructions and Action Choice
+{{ endblock }}
+
+{{ block app_styles }}
+    {% include '_static/global/style_details.html' %}
+{{ endblock }}
+
+{{ block content }}
+
+    <div class="description">
+        {{ formfield "myName" label="Enter you name" }}
+        <br>
+        <ul>
+            <li>
+                This game is called Public Good Game
+            </li>
+            <li>
+                You are in a group of three.
+            </li>
+            <li>
+                You have an endowment of {{ endowment }} units (Endowment).
+            </li>
+            <li>
+                You can contribute a part of your endowment to a public good fund (Contribution). The rest will remain with you.
+            </li>
+        </ul>
+        <h3>
+            Public Good Fund
+        </h3>
+        <ul>
+            <li>
+                Each member of the group you are in contribute to this fund. It can be zero (0) units.
+            </li>
+            <li>
+                The fund returns {{ multiplier }} times the total contribution. For example: If you contribute 1 unit and the total contribution is 3 units then the fund will return {{ multiplier }}<span>&#215;</span>3 units = {{ pgeTotal }} units.
+            </li>
+            <li>
+                Each of you will receive one-third of the total return. In the given example, you will receive {{ multiplier }} units from the fund. This is called the Public Good Earning.
+            </li>
+        </ul>
+        <h3>
+            Total Earning
+        </h3>
+        <ul>
+            <li>
+                Your Earning = Endowment - Contribution + Public Good Earning 
+            </li>
+            <li>
+                Example: Your Earning = {{ endowment }} - 1 + {{ multiplier }} units = {{ example }} units
+            </li>
+        </ul>
+        <br>
+        <br>
+        {{ formfield "myAction" }}
+        <br>
+        <br>
+        <p style="text-align: center;">
+            <button class="btn btn-primary btn-large" id="NextButton" style="display: inline-block; font-size: 22px; background-color: #024b30;">
+                Confirm Choice
+            </button>
+        </p>
+    </div>
+
+{{ endblock }}

@@ -1,0 +1,92 @@
+{{ block title }}
+    Instructions
+{{ endblock }}
+
+{{ block app_styles }}
+    {% include '_static/global/style_details.html' %}
+{{ endblock }}
+
+{{ block content }}
+
+    <div class="description">
+        {{ formfield "myName" label="Enter you name"}}
+        <ul>
+            <li>
+                This game in called Prisoner's Dilemma.
+            </li>
+            <br>
+            <li>
+                This game is for two players -- you and <b>Other</b>. You and Other can choose between two actions -- Cooperation and Defection.
+            </li>
+            <br>
+            <li>
+                The payoffs are given in the table below.
+            </li>
+            <br>
+        </ul>
+        <br>
+        <h3 style="text-align: center;">
+            Payoff Table
+        </h3>	
+
+        <table class="table">
+            <tr>
+                <th style="border: none;"></th>
+                <th style="border: none;"></th>
+                <th colspan="2">Other</th>
+            </tr>
+            <tr>
+                <td style="border: none;"></td>
+                <td style="border: none;"></td>
+                <td>Cooperation</td>
+                <td>Defection</td>
+            </tr>
+            <tr>
+                <td rowspan="2">You</td>
+                <td>Cooperation</td>
+                <td><span style="color:red" id="CC_1">{{ CC_1 }}</span>, <span style="color:blue" id="CC_2">{{ CC_2 }}</span></td>
+                <td><span style="color:red" id="CD_1">{{ CD_1 }}</span>, <span style="color:blue" id="CD_2">{{ CD_2 }}</span></td>
+            </tr>
+            <tr>
+                <td>Defection</td>
+                <td><span style="color:red" id="DC_1">{{ DC_1 }}</span>, <span style="color:blue" id="DC_2">{{ DC_2 }}</span></td>
+                <td><span style="color:red" id="DD_1">{{ DD_1 }}</span>, <span style="color:blue" id="DD_2">{{ DD_2 }}</span></td>
+            </tr>
+        </table>    
+
+        <hr style="clear:both;">
+
+        <br>
+
+        <ul>
+            <li>
+                If you and Other choose Cooperation, you get <span style="color:red">{{ CC_1 }}</span> and Other gets <span style="color:blue">{{ CC_2 }}</span>. 
+            </li>
+            <li>
+                If you and Other choose Defection, you get <span style="color:red">{{ DD_1 }}</span> and Other gets <span style="color:blue">{{ DD_2 }}</span>.
+            </li>
+            <li>
+                If you choose Cooperation and Other chooses Defection, you get <span style="color:red">{{ CD_1 }}</span> and Other gets <span style="color:blue">{{ CD_2 }}</span>.
+            </li>
+            <li>
+                If you choose Defection and Other chooses Cooperation, you get <span style="color:red">{{ DC_1 }}</span> and Other gets <span style="color:blue">{{ DC_2 }}</span>.
+            </li>
+        </ul>
+
+        <hr style="clear:both;">
+
+        <ul>
+            <li>
+                After you choose your action, another person from the class will be chosen as <b>Other</b>. Your payoff will depend on what action you and Other choose.
+            </li>
+        </ul>
+
+        
+        <p style="text-align: center;">
+            <button class="btn btn-primary btn-large" id="NextButton" style="display: inline-block; font-size: 22px; background-color: #024b30;">
+                Choose Action
+            </button>
+        </p>
+    </div>
+
+{{ endblock }}

@@ -1,0 +1,16 @@
+{{ extends 'otree/WaitPage.html' }}
+
+{{ block app_styles }}
+	{{ include '_static/global/style_details.html' }}
+{{ endblock}}
+
+{{ block title }}
+	Waiting for everyone else.
+{{ endblock }}
+
+{{ block content }}
+	<div class="description">
+		You have chosen {{ myAction }} unit(s) of fish to harvest.
+	</div>
+	
+{{ endblock }}
