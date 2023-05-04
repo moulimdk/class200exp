@@ -8,12 +8,53 @@
 
 {{ block content }}
     <div class="description">
+        <table>
+            <tr>
+                <td>Period</td>
+                <td>Total Available</td>
+                <td>You Harvested</td>
+                <td>Total Harvested</td>
+                <td>Payoff</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>{{ available1 }}</td>
+                <td>{{ myAction1 }}</td>
+                <td>{{ harvest1 }}</td>
+                <td>{{ payoff1 }}</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>{{ available2 }}</td>
+                <td>{{ myAction2 }}</td>
+                <td>{{ harvest2 }}</td>
+                <td>{{ payoff2 }}</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>{{ available3 }}</td>
+                <td>{{ myAction3 }}</td>
+                <td>{{ harvest3 }}</td>
+                <td>{{ payoff3 }}</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>{{ available4 }}</td>
+                <td>{{ myAction4 }}</td>
+                <td>{{ harvest4 }}</td>
+                <td>{{ payoff4 }}</td>
+            </tr> 
+            <tr>
+                <td>5</td>
+                <td>{{ available5 }}</td>
+                <td>{{ myAction5 }}</td>
+                <td>{{ harvest5 }}</td>
+                <td>{{ payoff5 }}</td>
+            </tr>
+        </table>
         <ul>
             <li>
-                You have chosen to fish {{ myAction1 }} unit(s) in Period 1, {{ myAction2 }} unit(s) in Period 2, {{ myAction3 }} unit(s) in Period 3, {{ myAction4 }} unit(s) in Period 4, {{ myAction5 }} unit(s) in Period 5.
-            </li>
-            <li>
-                Your payoff is {{ myPayoff }}.
+                Your total payoff is {{ myPayoff }}.
             </li>
         </ul> 
     </div>

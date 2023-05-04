@@ -22,22 +22,25 @@
                 Consider that you are fishing from a common pond with a reserve of fish. You will fish from this pond for {{ num_periods }} periods.
             </li>
             <li>
-                In the beginning of period 1, there are {{ total_endowment }} fishes in the fish.
+                In the beginning of period 1, there are {{ total_endowment }} units fish in the pond.
             </li>
             <li>
-                In each period, you can fish upto 10 units of fish.
+                In each period, each player can fish upto 10 units of fish.
             </li>
             <li>
-                Between two subsequent periods, the population of fish grows {{ growth }} times.
+                Between two subsequent periods, the remaining population (after everyone harvested some fish) of fish grows {{ growth }} times.
             </li>
             <li>
-                For example: At the beginning of a period, there are 500 fish in the pond, and 100 units are harvested then 400 fishes will be remaning at the end of that period. Then the total population in the next period is {{ growth }}<span>&#215;</span>400 fishes = {{ next_endowment }} fishes.
+                For example: At the beginning of a period, there are 500 units of fish in the pond, and 100 units of fish are harvested then 400 units of fish will be remaning at the end of that period. Then the total population in the next period is {{ growth }}<span>&#215;</span>400 units of fishes = {{ next_endowment }} units of fish (rounded to the nearest integer).
+            </li>
+            <li>
+                If the total units of harvested fish is higher than available, the extra amount will be subtracted from each player proportionate to their harvest amount.
             </li>
             <li>
                 If at one period, the population reduces to zero due to harvesting, then there will be no growth and no fish in future periods. 
             </li>
             <li>
-                You payoff is the total amount of fish harvest over the 5 periods.
+                Your payoff is the total amount of fish harvested by you over the 5 periods.
             </li>
         </ul>
         <br>

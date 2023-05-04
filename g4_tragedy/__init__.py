@@ -1,6 +1,5 @@
 from otree.api import *
 import settings
-import numpy as np
 import random
 
 author = "Mouli Modak"
@@ -33,7 +32,7 @@ class Player(BasePlayer):
     
     myName = models.StringField()
     myAction = models.IntegerField(
-        min=0, max=10, label="How much will you choose to fish?"
+       initial = 0, min=0, max=10, label="How many units of fish will you choose to harvest?"
     )
     myPayment = models.FloatField(initial=0)
 
@@ -59,12 +58,17 @@ def result_update(group: Group):
 
     for p in players:
         group.subsession.total_harvested += p.myAction
-        p.payoff = p.myAction
     
     group.subsession.remaining = group.subsession.total_available - group.subsession.total_harvested
     
-    if group.subsession.remaining < 0:
-        group.subsession.continue_game = 0
+    if group.subsession.remaining <= 0:
+        for nr in range(group.round_number+1, C.NUM_ROUNDS+1):
+            group.subsession.in_round(nr).continue_game = 0
+        for p in players:
+            p.myPayment = round(p.myAction + (group.subsession.remaining*p.myAction/group.subsession.total_harvested),2)
+    else:
+        for p in players:
+            p.myPayment = p.myAction
 
 # PAGES
 
@@ -133,7 +137,7 @@ class P3_WaitingForAll(WaitPage):
 
     def is_displayed(player: Player):
         
-        return player.round_number <= C.NUM_ROUNDS
+        return (player.round_number <= C.NUM_ROUNDS) & (player.subsession.continue_game == 1)
     
 
 class P4_Results(Page):
@@ -143,11 +147,26 @@ class P4_Results(Page):
 
         dict_return = dict(
             myAction1 = player.in_round(1).myAction,
+            harvest1 = player.subsession.in_round(1).total_harvested,
+            available1 = player.subsession.in_round(1).total_available,
+            payoff1 = player.in_round(1).myPayment,
             myAction2 = player.in_round(2).myAction,
+            harvest2 = player.subsession.in_round(2).total_harvested,
+            available2 = player.subsession.in_round(2).total_available,
+            payoff2 = player.in_round(2).myPayment,
             myAction3 = player.in_round(3).myAction,
+            harvest3 = player.subsession.in_round(3).total_harvested,
+            available3 = player.subsession.in_round(3).total_available,
+            payoff3 = player.in_round(3).myPayment,
             myAction4 = player.in_round(4).myAction,
+            harvest4 = player.subsession.in_round(4).total_harvested,
+            available4 = player.subsession.in_round(4).total_available,
+            payoff4 = player.in_round(4).myPayment,
             myAction5 = player.in_round(5).myAction,
-            myPayoff = player.in_round(1).myAction+player.in_round(2).myAction+player.in_round(3).myAction+player.in_round(4).myAction+player.in_round(5).myAction,
+            harvest5 = player.subsession.in_round(5).total_harvested,
+            available5 = player.subsession.in_round(5).total_available,
+            payoff5 = player.in_round(5).myPayment,
+            myPayoff = round(player.in_round(1).myPayment+player.in_round(2).myPayment+player.in_round(3).myPayment+player.in_round(4).myPayment+player.in_round(5).myPayment,2),
         )
 
         return dict_return

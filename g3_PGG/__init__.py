@@ -1,6 +1,5 @@
 from otree.api import *
 import settings
-import numpy as np
 import random
 
 author = "Mouli Modak"
@@ -78,9 +77,9 @@ def result_update(group: Group):
             other1.other2Action = other2.myAction
             other2.other2Action = other1.myAction
 
-            player.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,2)
-            other1.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,2)
-            other2.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,2)
+            player.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,1)
+            other1.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,1)
+            other2.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,1)
 
             player.myPayment = (C.ENDOWMENT - player.myAction) + player.pge
             other1.myPayment = (C.ENDOWMENT - other1.myAction) + player.pge
@@ -114,8 +113,8 @@ def result_update(group: Group):
             other1.other1Action = player.myAction
             other1.other2Action = player.other2Action
 
-            player.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,2)
-            other1.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,2)
+            player.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,1)
+            other1.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,1)
 
             player.myPayment = (C.ENDOWMENT - player.myAction) + player.pge
             other1.myPayment = (C.ENDOWMENT - other1.myAction) + player.pge
@@ -139,7 +138,7 @@ def result_update(group: Group):
             player.other1Action = random.randint(0, C.ENDOWMENT)
             player.other2Action = random.randint(0, C.ENDOWMENT)
 
-            player.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,2)
+            player.pge = round((C.MULTIPLIER)*(player.myAction+player.other1Action+player.other2Action)/3,1)
 
             player.myPayment = (C.ENDOWMENT - player.myAction) + player.pge
             other1myPayment = (C.ENDOWMENT - player.other1Action) + player.pge
@@ -168,7 +167,7 @@ class P1_Instruction(Page):
             group_number = 2,
             multiplier = C.MULTIPLIER,
             endowment = C.ENDOWMENT,
-            pgeTotal = round(3*C.MULTIPLIER, 2),
+            pgeTotal = round(3*C.MULTIPLIER, 1),
             example = C.ENDOWMENT - 1 + C.MULTIPLIER
         )
 
@@ -230,7 +229,7 @@ class P4_Results(Page):
             myAction = player.myAction,
             myPayoff = player.myPayment,
             total_pge = player.myAction+player.other1Action+player.other2Action,
-            return_pge = round(3*player.pge,2),
+            return_pge = round(3*player.pge,1),
             pge = player.pge,
             other1Action = player.other1Action,
             other1Payoff = player.other1Payment,
